@@ -79,11 +79,20 @@ const App: React.FC = () => {
   return (
     <>
       <Upload
-        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        action="http://localhost:3333/api/futura/upload/imagem"
         listType="picture-card"
         fileList={fileList}
         onPreview={handlePreview}
         onChange={handleChange}
+        data={(file) => ({
+            imagem: file,
+            caminhoimagem: 'Aplicacao/Backend/Teste/Images',
+            recurso: 'padrão',
+          })
+        }
+        headers={{
+          'XApiKey': 'gFHZ0K5iWX8Kmo+xhWKr0Q=='
+        }}
       >
         {fileList.length >= 8 ? null : uploadButton}
       </Upload>
